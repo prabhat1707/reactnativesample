@@ -3,6 +3,12 @@ import { ScrollView } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 
 class Settings extends Component {
+
+  goToProfile = (user) => {
+    this.props.navigation.navigate('Profile');
+  };
+
+
   render() {
     return (
       <ScrollView>
@@ -12,6 +18,7 @@ class Settings extends Component {
           />
           <ListItem
             title="Profile"
+            onPress={() => this.goToProfile()}
           />
           <ListItem
             title="Password"

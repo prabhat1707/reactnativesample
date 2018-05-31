@@ -12,10 +12,10 @@ class Me extends Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: this.props.picture.large}}
+          imageSrc={{ uri: 'https://firebasestorage.googleapis.com/v0/b/react-native-project-42141.appspot.com/o/defaultUser.jpg?alt=media&token=ef9b5748-9e2a-4483-a2b4-7fc6ff3f06b1'}}
           featured
-          title={`${this.props.name.first.toUpperCase()} ${this.props.name.last.toUpperCase()}`}
-          caption={this.props.email}
+          title={'Prabhat Rai'}
+          caption={'Prabhat.rai@tanzaniteinfotech.com'}
         />
 
         <Button
@@ -27,7 +27,7 @@ class Me extends Component {
         <List>
           <ListItem
             title="Email"
-            rightTitle={this.props.email}
+            rightTitle={'Prabhat.rai@tanzaniteinfotech.com'}
             hideChevron
           />
           <ListItem
@@ -40,7 +40,7 @@ class Me extends Component {
         <List>
           <ListItem
             title="Username"
-            rightTitle={this.props.login.username}
+            rightTitle={'Prabhat rai'}
             hideChevron
           />
         </List>
@@ -53,7 +53,7 @@ class Me extends Component {
           />
           <ListItem
             title="City"
-            rightTitle={this.props.location.city}
+            rightTitle={'Delhi'}
             hideChevron
           />
         </List>

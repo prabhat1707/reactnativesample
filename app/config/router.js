@@ -6,19 +6,20 @@ import Feed from '../screens/Feed';
 import Settings from '../screens/Settings';
 import UserDetail from '../screens/UserDetail';
 import Me from '../screens/Me';
+import Profile from '../screens/ Profile';
 
 export const FeedStack = StackNavigator({
   Feed: {
     screen: Feed,
     navigationOptions: {
-      title: 'Feed',
+      header: null
     },
   },
   Details: {
     screen: UserDetail,
-    navigationOptions: ({ navigation }) => ({
-      title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
-    }),
+    // navigationOptions: ( { navigation } ) => ({
+    //   title: 'Detail',
+    // }),
   },
 });
 
@@ -26,7 +27,7 @@ export const Tabs = TabNavigator({
   Feed: {
     screen: FeedStack,
     navigationOptions: {
-      tabBarLabel: 'Feed',
+      tabBarLabel: 'News',
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />,
     },
   },
@@ -44,6 +45,12 @@ export const SettingsStack = StackNavigator({
     screen: Settings,
     navigationOptions: {
       title: 'Settings',
+    },
+  },
+  Profile: {
+    screen: Profile,
+    navigationOptions: {
+      title: 'Profile',
     },
   },
 });
