@@ -8,6 +8,9 @@ import UserDetail from '../screens/UserDetail';
 import Me from '../screens/Me';
 import Profile from '../screens/ Profile';
 
+import SignUp from '../screens/SignUp';
+import Login from '../screens/Login';
+
 export const FeedStack = StackNavigator({
   Feed: {
     screen: Feed,
@@ -55,7 +58,37 @@ export const SettingsStack = StackNavigator({
   },
 });
 
+export const AuthStack = StackNavigator({
+  SignUp: {
+    screen: SignUp,
+    navigationOptions: {
+      title: 'SignUp',
+    },
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      title: 'Login',
+    },
+  },
+});
+
+// export const Root = StackNavigator({
+//   Tabs: {
+//     screen: Tabs,
+//   },
+//   Settings: {
+//     screen: SettingsStack,
+//   },
+// }, {
+//   mode: 'modal',
+//   headerMode: 'none',
+// });
+
 export const Root = StackNavigator({
+  AuthStack:{
+    screen: Auth,
+  },
   Tabs: {
     screen: Tabs,
   },
