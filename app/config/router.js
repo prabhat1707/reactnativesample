@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
 import Feed from '../screens/Feed';
@@ -11,7 +11,7 @@ import Profile from '../screens/ Profile';
 import SignUp from '../screens/SignUp';
 import Login from '../screens/Login';
 
-export const FeedStack = StackNavigator({
+ const FeedStack = StackNavigator({
   Feed: {
     screen: Feed,
     navigationOptions: {
@@ -26,7 +26,7 @@ export const FeedStack = StackNavigator({
   },
 });
 
-export const Tabs = TabNavigator({
+ const Tabs = TabNavigator({
   Feed: {
     screen: FeedStack,
     navigationOptions: {
@@ -43,7 +43,7 @@ export const Tabs = TabNavigator({
   },
 });
 
-export const SettingsStack = StackNavigator({
+ const SettingsStack = StackNavigator({
   Settings: {
     screen: Settings,
     navigationOptions: {
@@ -58,22 +58,37 @@ export const SettingsStack = StackNavigator({
   },
 });
 
-export const AuthStack = StackNavigator({
+ const AuthStack = StackNavigator({
   SignUp: {
     screen: SignUp,
     navigationOptions: {
-      title: 'SignUp',
+      header: null,
     },
   },
   Login: {
     screen: Login,
     navigationOptions: {
-      title: 'Login',
+      header: null,
     },
   },
+}); 
+
+export const Screen2 = StackNavigator({
+  Tabs: {
+    screen: Tabs,
+  },
+  Settings: {
+    screen: SettingsStack,
+  },
+}, {
+  mode: 'modal',
+  headerMode: 'none',
 });
 
-// export const Root = StackNavigator({
+//  const Root = StackNavigator({
+//   AuthStack:{
+//     screen: AuthStack,
+//   },
 //   Tabs: {
 //     screen: Tabs,
 //   },
@@ -85,17 +100,12 @@ export const AuthStack = StackNavigator({
 //   headerMode: 'none',
 // });
 
-export const Root = StackNavigator({
-  AuthStack:{
-    screen: Auth,
+export const Root =  createSwitchNavigator(
+  {
+    AuthStack: AuthStack,
+    Screen2: Screen2,
   },
-  Tabs: {
-    screen: Tabs,
-  },
-  Settings: {
-    screen: SettingsStack,
-  },
-}, {
-  mode: 'modal',
-  headerMode: 'none',
-});
+  {
+    initialRouteName: 'AuthStack',
+  }
+);

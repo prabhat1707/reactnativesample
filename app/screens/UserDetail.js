@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, View, Linking } from 'react-native';
 import { Tile, Text, List, ListItem } from 'react-native-elements';
 
-import {
-  CachedImage,
-  ImageCacheProvider
-} from 'react-native-cached-image';
+
 import { Button, Content } from 'native-base';
 
 function getImageUrl (url) {
